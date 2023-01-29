@@ -8,11 +8,22 @@ class Program
         Console.WriteLine("Hello Learning02 World!");
         Console.WriteLine();
 
+        //                <Creating a new object>
+        //Class variableName = new Object()
         Job job1 = new Job();
-        job1._jobTitle = "Software Engineer";
-        job1._company = "Microsoft";
-        job1._startYear = 1290;
-        job1._endYear = 1370;
+        // The way the class wants is commented
+        Console.Write("What is your job title? ");
+        job1._jobTitle = Console.ReadLine();
+        //job1._jobTitle = "Software Engineer";
+        Console.Write("What is your company? ");
+        job1._company = Console.ReadLine();
+        //job1._company = "Microsoft";
+        Console.Write("When did you start? ");
+        job1._startYear = int.Parse(Console.ReadLine());
+        //job1._startYear = 1290;
+        Console.Write("When did you end? ");
+        job1._endYear = int.Parse(Console.ReadLine());
+        //job1._endYear = 1370;
 
         Job job2 = new Job();
         job2._jobTitle = "Manager";
