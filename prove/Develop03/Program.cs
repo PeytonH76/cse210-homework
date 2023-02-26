@@ -12,7 +12,7 @@ class Program
         verses.Add("D&C 84 36: For he that receiveth my servants receiveth me;");
         verses.Add("D&C 84 37: And he that receiveth me receiveth my Father;");
         Random v = new Random();
-        int verse = v.Next(verses.Count);
+        int verse = v.Next(verses.Count());
         string randVerse = verses[verse];
 
 
@@ -35,7 +35,7 @@ class Program
                 string[] referParts3 = referNumbers.Split('-');
                 int referStartVerse = int.Parse(referParts3[0]);
                 int referEndVerse = int.Parse(referParts3[1]);
-
+ 
                 Reference refere1 = new Reference(referBook, referChapter, referStartVerse);
                 Reference refere2 = new Reference(referBook, referChapter, referStartVerse, referEndVerse);
                 Scripture scripture1 = new Scripture(refere1, verses);

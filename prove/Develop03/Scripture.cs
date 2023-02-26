@@ -6,10 +6,10 @@ public class Scripture
     public List<string> verses { get; set; }
     private List<Word> _words = new List<Word>();
 
-    public Scripture(Reference reference, List<string> verses)
+    public Scripture(Reference reference, List<string> versus)
     {
-        this._ref = reference;
-        this.verses = verses;
+        _ref = reference;
+        verses = versus;
     }
 
     public void HideWords(int count){
