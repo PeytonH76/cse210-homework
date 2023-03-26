@@ -7,12 +7,12 @@ public class LoadSave{
         LoadedGoals = new List<string>();
     }
 
-    public void Save(List<string> goals){
+    public void Save(List<Goal> goals){
         Console.WriteLine("What did you want to call the file? ");
         string fileName = Console.ReadLine();
         using (StreamWriter writer = new StreamWriter(fileName, true)){
             foreach (var goal in goals) {
-                writer.WriteLine(goal);
+                writer.WriteLine(goal.SaveData());
             }
         }
     }
