@@ -12,8 +12,9 @@ public class GetModernWarfare2: Game{
         string character = random.GetRandomCharacter();
         string weapon = random.GetRandomWeapon();
         string tactical = random.GetRandomTactical();
-        randomInputs.Add($"{character}: {weapon}: {tactical}");
-        Console.WriteLine($"{character}: {weapon}: {tactical}");
+        string lethal = random.GetRandomLethal();
+        randomInputs.Add($"{character}: {weapon}: {lethal}: {tactical}");
+        Console.WriteLine($"{character}: {weapon}: {lethal}: {tactical}");
     }
     public override void GetCharacter(){
         RandomGenerator2 random = new RandomGenerator2();

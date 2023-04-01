@@ -3,10 +3,10 @@ using System;
 public class Load{
 
     public Load(){
-
+        
     }
 
-    public void GetLoad(){
+    public string[] GetLoad(){
         string directoryPath = "/Users/peytonhaws/Documents/Programming with Classes/cse210-homework/final/FinalProject";
         string filePattern = "*.txt";
 
@@ -39,11 +39,6 @@ public class Load{
         // Load the chosen file
         string chosenFileName = fileNames[choice - 1];
         string[] lines = File.ReadAllLines(chosenFileName);
-
-        // Print the lines to the console
-        foreach (string line in lines)
-        {
-            Console.WriteLine(line);
-        }
+        return lines;
     }
 }
