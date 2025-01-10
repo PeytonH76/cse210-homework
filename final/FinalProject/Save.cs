@@ -8,7 +8,7 @@ public class Save{
         
     }
 
-    public void GetSave(string save, List<Game> games, List<Game> apex, List<Game> modern, List<Game> ghost){
+    public void GetSave(string save, List<Game> games, List<Game> apex, List<Game> modern, List<Game> ghost, List<Game> profile, List<Game> teams){
 
         Console.WriteLine();
 
@@ -62,6 +62,20 @@ public class Save{
                     writer.WriteLine($"Ghost - {g.GetData()}");
                 }
                 ghost.Clear();
+            }
+
+            using (StreamWriter writer = new StreamWriter(fileName, true)){
+                foreach (var p in profile){
+                    writer.WriteLine($"Profile - {p.GetData()}");
+                }
+                profile.Clear();
+            }
+
+            using (StreamWriter writer = new StreamWriter(fileName, true)){
+                foreach (var t in teams){
+                    writer.WriteLine($"Baseball Teams - {t.GetData()}");
+                }
+                teams.Clear();
             }
             
             

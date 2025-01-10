@@ -41,6 +41,7 @@ public class RandomGenerator1{
         _weapons.Add("RE-45 Auto");
         _weapons.Add("P2020");
         _weapons.Add("Wingman");
+        _weapons.Add("Fists");
         Random w = new Random();
         int weapon = w.Next(_weapons.Count);
         string randWeapon = _weapons[weapon];
@@ -71,6 +72,7 @@ public class RandomGenerator1{
         _character.Add("Seer");
         _character.Add("Valkyrie");
         _character.Add("Vantage");
+        _character.Add("Ballistic");
         Random c = new Random();
         int character = c.Next(_character.Count);
         string randCharacter = _character[character];

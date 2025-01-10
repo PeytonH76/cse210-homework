@@ -10,6 +10,10 @@ class Program
         List<Game> listModern = new List<Game>();
         List<Game> ghostRandom = new List<Game>();
         List<Game> listGhost = new List<Game>();
+        List<Game> profileRandom = new List<Game>();
+        List<Game> listProfile = new List<Game>();
+        List<Game> baseballTeamRandom = new List<Game>();
+        List<Game> listBaseball = new List<Game>();
         List<Game> randoms = new List<Game>();
         List<Game> listRandoms = new List<Game>();
         Save save = new Save();
@@ -25,16 +29,20 @@ class Program
             Console.WriteLine("1. Apex Legends");
             Console.WriteLine("2. Call of Duty Modern Warfare 2");
             Console.WriteLine("3. Call of Duty Ghost Extinction");
-            Console.WriteLine("4. View Randoms (Shows all saved and not saved until a file is loaded)");
-            Console.WriteLine("5. Loaded Randoms");
-            Console.WriteLine("6. Load");
-            Console.WriteLine("7. Quit");
+            Console.WriteLine("4. My Profiles (Grabs a random profile of mine)");
+            Console.WriteLine("5. My Amibos (Grabs a random amibo of mine)");
+            Console.WriteLine("6. Baseball Teams");
+            Console.WriteLine("7. View Randoms (Shows all saved and not saved until a file is loaded)");
+            Console.WriteLine("8. Loaded Randoms");
+            Console.WriteLine("9. Load");
+            Console.WriteLine("10. Quit");
 
             Console.WriteLine(" ");
             string choice = Console.ReadLine();
 
             Console.WriteLine();
 
+            // Apex Legends 
             if (choice == "1" || choice == "one"){
                 GetApexLegends apex = new GetApexLegends();
                 Console.WriteLine("Did you want to get a random character, weapon, or both? ");
@@ -49,7 +57,7 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine("Do you want to save? (yes/no)");
                     string choice3 = Console.ReadLine();
-                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom);
+                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);
                 }
                 else if (choice2 == "weapon"){
                     apex.GetWeapon();
@@ -60,7 +68,7 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine("Do you want to save? (yes/no)");
                     string choice3 = Console.ReadLine();
-                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom);
+                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);
                 }
                 else if (choice2 == "both"){
                     apex.GetLoadout();
@@ -71,9 +79,10 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine("Do you want to save? (yes/no)");
                     string choice3 = Console.ReadLine();
-                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom);                
+                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);                
                 }
             }
+            // Modern Warfare 2
             else if (choice == "2" || choice == "two"){
                 GetModernWarfare2 modern = new GetModernWarfare2();
                 Console.WriteLine("Did you want to get a random character, weapon, or loadout? ");
@@ -88,7 +97,7 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine("Do you want to save? (yes/no)");
                     string choice3 = Console.ReadLine();
-                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom);                
+                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);                
                 }
                 else if (choice2 == "weapon"){
                     modern.GetWeapon();
@@ -99,7 +108,7 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine("Do you want to save? (yes/no)");
                     string choice3 = Console.ReadLine();
-                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom);               
+                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);               
                 }
                 else if (choice2 == "loadout"){
                     modern.GetLoadout();
@@ -110,9 +119,10 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine("Do you want to save? (yes/no)");
                     string choice3 = Console.ReadLine();
-                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom);                
+                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);                
                 }
             }
+            // Call of Duty Ghost
             else if (choice == "3" || choice == "three"){
                 GetGhost ghost = new GetGhost();
                 Console.WriteLine("Do you want to get a random weapon or loadout?");
@@ -127,7 +137,7 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine("Do you want to save? (yes/no)");
                     string choice3 = Console.ReadLine();
-                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom);                
+                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);                
                 }
                 else if (choice2 == "loadout"){
                     ghost.GetLoadout();
@@ -138,11 +148,36 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine("Do you want to save? (yes/no)");
                     string choice3 = Console.ReadLine();
-                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom);     
+                    save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);     
                 }
             }
-            // View Randoms
+            // Get Profile
             else if (choice == "4" || choice == "four"){
+                GetProfiles profiles = new GetProfiles();
+                profiles.GetCharacter();
+                profileRandom.Add(profiles);
+                randoms.Add(profiles);
+                listRandoms.Add(profiles);
+                listProfile.Add(profiles);
+                Console.WriteLine();
+                Console.WriteLine("Do you want to save? (yes/no)");
+                string choice3 = Console.ReadLine();
+                save.GetSave(choice3, randoms, apexRandom, modernRandom, ghostRandom, profileRandom, baseballTeamRandom);   
+            }
+            // Get Amibos
+            else if (choice == "5" || choice == "five"){
+                GetAmibos amibos = new GetAmibos();
+                amibos.GetCharacter();
+            }
+            // Get Baseball Teams
+            else if (choice == "6" || choice == "six"){
+                GetBaseballTeams teams = new GetBaseballTeams();
+                listBaseball.Add(teams);
+                baseballTeamRandom.Add(teams);
+                teams.GetCharacter();
+            }
+            // View Randoms
+            else if (choice == "7" || choice == "seven"){
                 Console.WriteLine("Apex Legends:");
                 foreach (Game random in listApex){
                     random.GetList();
@@ -158,13 +193,18 @@ class Program
                     random.GetList();
                 }
                 Console.WriteLine();
+                foreach (Game random in listBaseball){
+                    random.GetList();
+                }
+                Console.WriteLine();
                 Console.WriteLine("All:");
                 foreach (Game random in listRandoms){
                     random.GetList();
                 }
                 Console.WriteLine();
             }
-            else if (choice == "5" || choice == "five"){
+            // Loads Current Randoms Generated 
+            else if (choice == "8" || choice == "eight"){
                 if (loadedFileContent != null) {
                     Console.WriteLine();
                     Console.WriteLine("Loaded File Content:");
@@ -179,17 +219,26 @@ class Program
                 }
                 Console.WriteLine();
             }
-            else if (choice == "6" || choice == "six"){
+            // Loads a previous saved text file
+            else if (choice == "9" || choice == "nine"){
                 loadedFileContent = load.GetLoad();
-                listApex.Clear();
+                listApex.Clear(); 
                 listGhost.Clear();
                 listModern.Clear();
+                listProfile.Clear();
                 listRandoms.Clear();
+                // View whats in the loaded file
+
             }
-            else{
+            else if (choice == "10" || choice == "ten"){
                 stop = true;
             }
 
+            else {
+                Console.WriteLine("");
+                Console.WriteLine("Sorry thats not an option. Choose again.");
+
+            }
         }
         
     }
